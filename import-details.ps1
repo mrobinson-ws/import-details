@@ -6,4 +6,4 @@ Param(
 
 $users = Import-Excel -Path $ExcelDoc
 
-foreach ($user in $users){Set-AzureADUser -ObjectId $user.Email -CustomAtrribute1 $user.Type -City $user.City -State $user.State}
+foreach ($user in $users){Set-AzureADUser -ObjectId $user.Email -CustomAttribute1 $user.Type -City $user.City -State $user.State}
