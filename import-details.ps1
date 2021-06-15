@@ -1,7 +1,5 @@
 [Cmdletbinding()]
 Param(
-    [Parameter(Mandatory=$true)]
-    [string]$ExcelDoc
 )
 
 # Test And Connect To AzureAD If Needed
@@ -26,7 +24,7 @@ catch {
     Connect-ExchangeOnline
 }
 
-$users = Import-Excel -Path $ExcelDoc
+$users = Import-Excel -Path "C:\Git Repo\import-details\VelocityUserList 6-14.xlsx"
 
 foreach ($user in $users){
     Set-AzureADUser -ObjectId $user.Email -City $user.City -State $user.State
