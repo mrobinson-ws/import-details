@@ -1,5 +1,8 @@
 [Cmdletbinding()]
-Param()
+Param(
+    [Parameter(Mandatory=$true)]
+    [string]$ExcelDoc
+)
 
 # Test And Connect To AzureAD If Needed
 try {
@@ -22,10 +25,6 @@ catch {
     Write-Verbose -Message "Connecting to Microsoft Exchange Online"
     Connect-ExchangeOnline
 }
-Param(
-    [Parameter(Mandatory=$true)]
-    [string]$ExcelDoc
-)
 
 $users = Import-Excel -Path $ExcelDoc
 
