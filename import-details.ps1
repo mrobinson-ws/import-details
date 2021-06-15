@@ -27,6 +27,8 @@ catch {
 $users = Import-Excel -Path "C:\Git Repo\import-details\VelocityUserList 6-14.xlsx"
 
 foreach ($user in $users){
+    Write-Verbose "Setting $($user.Email) City and State"
     Set-AzureADUser -ObjectId $user.Email -City $user.City -State $user.State
+    Write-Verbose "Setting $($user.Email) Custom Attribute 1"
     Set-Mailbox -Identity $user.email -CustomAttribute1 $user.Type
 }
