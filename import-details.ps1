@@ -1,3 +1,6 @@
+[Cmdletbinding()]
+Param()
+
 # Test And Connect To AzureAD If Needed
 try {
     Write-Verbose -Message "Testing connection to Azure AD"
